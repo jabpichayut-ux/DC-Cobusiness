@@ -1,10 +1,18 @@
--- Users (LINE users who added the OA)
+-- Drop existing tables if any (safe reset)
+drop table if exists broadcast_logs cascade;
+drop table if exists gold_prices cascade;
+drop table if exists repair_requests cascade;
+drop table if exists announcements cascade;
+drop table if exists promotions cascade;
+drop table if exists users cascade;
+
+-- Users
 create table users (
   id uuid primary key default gen_random_uuid(),
   line_user_id text unique not null,
   display_name text,
   picture_url text,
-  tags text[] default '{}',  -- ['tenant', 'gold_customer', 'warehouse_customer', 'furniture_customer', 'vip', 'family_customer']
+  tags text[] default '{}',
   apartment_unit text,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
@@ -35,7 +43,7 @@ create table announcements (
   created_at timestamptz default now()
 );
 
--- Repair requests (apartment)
+-- Repair requests
 create table repair_requests (
   id uuid primary key default gen_random_uuid(),
   user_id uuid references users(id),
