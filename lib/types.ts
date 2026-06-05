@@ -1,5 +1,5 @@
 // User types
-export type UserTag = "tenant" | "gold_customer" | "vip" | "family_customer";
+export type UserTag = "tenant" | "gold_customer" | "warehouse_customer" | "furniture_customer" | "vip" | "family_customer";
 
 export interface User {
   id: string;
@@ -21,7 +21,7 @@ export interface CreateUserInput {
 }
 
 // Promotion types
-export type BusinessType = "apartment" | "gold" | "property" | "all";
+export type BusinessType = "apartment" | "gold" | "warehouse" | "furniture" | "all";
 
 export interface Promotion {
   id: string;
