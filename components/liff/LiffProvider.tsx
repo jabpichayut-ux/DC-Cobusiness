@@ -27,7 +27,9 @@ const LiffContext = createContext<LiffContextType>({ profile: null, isLoading: t
 
 export function useLiff() { return useContext(LiffContext); }
 
-export function LiffProvider({ liffId, children }: { liffId: string; children: React.ReactNode }) {
+interface LiffProviderProps { liffId: string; children: React.ReactNode; }
+
+export function LiffProvider({ liffId, children }: LiffProviderProps) {
   const [profile, setProfile] = useState<LineProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
