@@ -6,6 +6,8 @@ import type { User, UserTag } from "@/lib/types";
 const TAG_LABELS: Record<UserTag, string> = {
   tenant: "ผู้เช่า",
   gold_customer: "ลูกค้าทอง",
+  warehouse_customer: "ลูกค้าโกดัง",
+  furniture_customer: "ลูกค้าเฟอร์นิเจอร์",
   vip: "VIP",
   family_customer: "ครอบครัว",
 };
@@ -13,11 +15,13 @@ const TAG_LABELS: Record<UserTag, string> = {
 const TAG_COLORS: Record<UserTag, string> = {
   tenant: "bg-green-100 text-green-700",
   gold_customer: "bg-yellow-100 text-yellow-700",
+  warehouse_customer: "bg-orange-100 text-orange-700",
+  furniture_customer: "bg-teal-100 text-teal-700",
   vip: "bg-purple-100 text-purple-700",
   family_customer: "bg-blue-100 text-blue-700",
 };
 
-const ALL_TAGS: UserTag[] = ["tenant", "gold_customer", "vip", "family_customer"];
+const ALL_TAGS: UserTag[] = ["tenant", "gold_customer", "warehouse_customer", "furniture_customer", "vip", "family_customer"];
 
 interface UserTableProps {
   users: User[];
