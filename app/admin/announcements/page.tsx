@@ -9,13 +9,15 @@ const BUSINESS_OPTIONS: { value: BusinessType; label: string }[] = [
   { value: "all", label: "ทุกธุรกิจ" },
   { value: "apartment", label: "ห้องพัก" },
   { value: "gold", label: "ร้านทอง" },
-  { value: "property", label: "อสังหาริมทรัพย์" },
+  { value: "warehouse", label: "โกดัง" },
+  { value: "furniture", label: "เฟอร์นิเจอร์" },
 ];
 
 const BUSINESS_LABELS: Record<string, string> = {
   apartment: "ห้องพัก",
   gold: "ร้านทอง",
-  property: "อสังหา",
+  warehouse: "โกดัง",
+  furniture: "เฟอร์นิเจอร์",
   all: "ทุกธุรกิจ",
 };
 

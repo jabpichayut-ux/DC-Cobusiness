@@ -7,7 +7,8 @@ const BUSINESS_OPTIONS: { value: BusinessType; label: string }[] = [
   { value: "all", label: "ทุกธุรกิจ" },
   { value: "apartment", label: "ห้องพัก" },
   { value: "gold", label: "ร้านทอง" },
-  { value: "property", label: "อสังหาริมทรัพย์" },
+  { value: "warehouse", label: "โกดัง" },
+  { value: "furniture", label: "เฟอร์นิเจอร์" },
 ];
 
 interface PromotionFormProps {

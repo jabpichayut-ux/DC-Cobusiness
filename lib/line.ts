@@ -35,8 +35,7 @@ export async function getLineProfile(userId: string) {
 }
 
 export async function sendWelcomeMessage(userId: string, displayName: string) {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "";
-  const liffHomeId = process.env.NEXT_PUBLIC_LIFF_ID_HOME || "";
+  const liffApartmentId = process.env.NEXT_PUBLIC_LIFF_ID_APARTMENT || "";
 
   await lineClient.pushMessage(userId, [
     {
@@ -134,18 +133,16 @@ export async function sendWelcomeMessage(userId: string, displayName: string) {
                   type: "box",
                   layout: "horizontal",
                   contents: [
-                    {
-                      type: "text",
-                      text: "🏢",
-                      size: "sm",
-                      flex: 0,
-                    },
-                    {
-                      type: "text",
-                      text: "อสังหาริมทรัพย์",
-                      size: "sm",
-                      margin: "sm",
-                    },
+                    { type: "text", text: "🏭", size: "sm", flex: 0 },
+                    { type: "text", text: "โกดัง/คลังสินค้า", size: "sm", margin: "sm" },
+                  ],
+                },
+                {
+                  type: "box",
+                  layout: "horizontal",
+                  contents: [
+                    { type: "text", text: "🪑", size: "sm", flex: 0 },
+                    { type: "text", text: "เฟอร์นิเจอร์", size: "sm", margin: "sm" },
                   ],
                 },
               ],
@@ -161,8 +158,8 @@ export async function sendWelcomeMessage(userId: string, displayName: string) {
               type: "button",
               action: {
                 type: "uri",
-                label: "ดูบัตรสมาชิกของฉัน",
-                uri: `https://liff.line.me/${liffHomeId}`,
+                label: "ดูบริการห้องพัก",
+                uri: `https://liff.line.me/${liffApartmentId}`,
               },
               style: "primary",
               color: "#2563eb",

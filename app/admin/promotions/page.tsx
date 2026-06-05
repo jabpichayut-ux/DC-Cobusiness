@@ -9,7 +9,8 @@ const ADMIN_SECRET = process.env.NEXT_PUBLIC_ADMIN_SECRET || "";
 const BUSINESS_LABELS: Record<string, string> = {
   apartment: "ห้องพัก",
   gold: "ร้านทอง",
-  property: "อสังหา",
+  warehouse: "โกดัง",
+  furniture: "เฟอร์นิเจอร์",
   all: "ทุกธุรกิจ",
 };
 

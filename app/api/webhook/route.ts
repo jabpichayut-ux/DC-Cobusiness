@@ -63,15 +63,19 @@ async function handlePostback(event: PostbackEvent) {
   const type = params.get("type");
 
   switch (action) {
-    case "announcements":
+    case "announcements": {
+      const announcementText: Record<string, string> = {
+        apartment: "ประกาศห้องพัก: ไม่มีประกาศใหม่ในขณะนี้ 🏠",
+        gold: "ประกาศร้านทอง: ไม่มีประกาศใหม่ในขณะนี้ 💛",
+        warehouse: "ประกาศโกดัง: ไม่มีประกาศใหม่ในขณะนี้ 🏭",
+        furniture: "ประกาศเฟอร์นิเจอร์: ไม่มีประกาศใหม่ในขณะนี้ 🪑",
+      };
       await lineClient.replyMessage(event.replyToken, {
         type: "text",
-        text:
-          type === "apartment"
-            ? "ประกาศห้องพัก: ไม่มีประกาศใหม่ในขณะนี้ กรุณาติดตามได้เร็วๆ นี้ 🏠"
-            : "ประกาศทั้งหมด: ไม่มีประกาศใหม่ในขณะนี้ กรุณาติดตามได้เร็วๆ นี้ 📢",
+        text: (type && announcementText[type]) || "ประกาศทั้งหมด: ไม่มีประกาศใหม่ในขณะนี้ 📢",
       });
       break;
+    }
 
     case "contact":
       await lineClient.replyMessage(event.replyToken, {
@@ -93,7 +97,8 @@ async function handlePostback(event: PostbackEvent) {
                 contents: [
                   { type: "text", text: "🏠 ห้องพัก: 081-234-5678", size: "sm" },
                   { type: "text", text: "💛 ร้านทอง: 081-234-5679", size: "sm" },
-                  { type: "text", text: "🏢 อสังหา: 081-234-5680", size: "sm" },
+                  { type: "text", text: "🏭 โกดัง: 081-234-5680", size: "sm" },
+                  { type: "text", text: "🪑 เฟอร์นิเจอร์: 081-234-5681", size: "sm" },
                   { type: "text", text: "⏰ เปิด: จ-ศ 9:00-18:00", size: "sm", color: "#666666" },
                 ],
               },
