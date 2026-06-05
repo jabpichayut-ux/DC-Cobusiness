@@ -20,6 +20,7 @@ export interface CreateUserInput {
   apartment_unit?: string;
 }
 
+// Promotion types
 export type BusinessType = "apartment" | "gold" | "warehouse" | "furniture" | "all";
 
 export interface Promotion {
@@ -46,6 +47,7 @@ export interface CreatePromotionInput {
   ends_at?: string;
 }
 
+// Announcement types
 export interface Announcement {
   id: string;
   title: string;
@@ -64,6 +66,7 @@ export interface CreateAnnouncementInput {
   is_active?: boolean;
 }
 
+// Repair request types
 export type IssueType = "electrical" | "plumbing" | "ac" | "other";
 export type RepairStatus = "pending" | "in_progress" | "resolved";
 
@@ -86,6 +89,7 @@ export interface CreateRepairRequestInput {
   description: string;
 }
 
+// Gold price types
 export interface GoldPrice {
   id: string;
   buy_price: number;
@@ -94,6 +98,7 @@ export interface GoldPrice {
   updated_at: string;
 }
 
+// Broadcast log types
 export interface BroadcastLog {
   id: string;
   message: string;
@@ -102,6 +107,7 @@ export interface BroadcastLog {
   created_at: string;
 }
 
+// LINE types
 export interface LineProfile {
   userId: string;
   displayName: string;
@@ -109,8 +115,14 @@ export interface LineProfile {
   statusMessage?: string;
 }
 
+// Rich menu types
 export interface RichMenuArea {
-  bounds: { x: number; y: number; width: number; height: number; };
+  bounds: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
   action: RichMenuAction;
 }
 
@@ -128,12 +140,14 @@ export interface RichMenu {
   areas: RichMenuArea[];
 }
 
+// Admin API response
 export interface ApiResponse<T> {
   success: boolean;
   data?: T;
   error?: string;
 }
 
+// Dashboard stats
 export interface DashboardStats {
   totalUsers: number;
   tenants: number;
